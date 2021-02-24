@@ -10,30 +10,31 @@
         android:id="@+id/memeImageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideline2"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
         android:id="@+id/shareMeme"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:onClick="shareMeme"
         android:padding="32dp"
         android:text="Share"
-        android:onClick="shareMeme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="@id/guideline"/>
+        app:layout_constraintRight_toRightOf="@id/guideline" />
 
     <Button
         android:id="@+id/nextMeme"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:onClick="nextMeme"
         android:padding="32dp"
         android:text="Next"
-        android:onClick="nextMeme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -45,4 +46,11 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="94dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
