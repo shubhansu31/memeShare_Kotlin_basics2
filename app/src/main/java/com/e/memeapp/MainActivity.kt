@@ -17,11 +17,13 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import android.content.Intent as Intent1
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var memeImageView : ImageView;
     private lateinit var progressBar : ProgressBar;
+    private var currentImageUrl : String? = null;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,8 +43,8 @@ class MainActivity : AppCompatActivity() {
         val jsonObjectRequest = JsonObjectRequest(
             Request.Method.GET, url,null,
             { response ->
-                val url = response.getString("url");
-                Glide.with(this).load(url).listener(object: RequestListener<Drawable>{
+                currentImageUrl = response.getString("url");
+                Glide.with(this).load(currentImageUrl).listener(object: RequestListener<Drawable>{
                     override fun onLoadFailed(
                         e: GlideException?,
                         model: Any?,
@@ -76,5 +78,11 @@ class MainActivity : AppCompatActivity() {
     fun nextMeme(view: View) {
         loadMeme();
     }
-    fun shareMeme(view: View) {}
+    fun shareMeme(view: View) {
+        var intent : Intent1 = Intent1(Intent1.ACTION_SEND);
+        intent.type = "text/plain";
+        intent.putExtra(android.content.Intent.EXTRA_TEXT,"CheckOut this meme $currentImageUrl");
+        val chooser = Intent1.createChooser(intent , "share this meme using..");
+        startActivity(chooser);
+    }
 }
