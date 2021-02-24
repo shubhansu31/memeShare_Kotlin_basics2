@@ -17,6 +17,15 @@
         app:layout_constraintBottom_toTopOf="@id/guideline2"
         tools:srcCompat="@tools:sample/avatars" />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/memeImageView"
+        app:layout_constraintBottom_toBottomOf="@id/memeImageView"
+        app:layout_constraintLeft_toLeftOf="@id/memeImageView"
+        app:layout_constraintRight_toRightOf="@id/memeImageView"
+        />
     <Button
         android:id="@+id/shareMeme"
         android:layout_width="0dp"
@@ -53,4 +62,5 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_end="94dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
